@@ -1,0 +1,16 @@
+<!DOCTYPE html><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+<title>Touch Test</title>
+<style>body{font-family:-apple-system,system-ui;background:#0f1115;color:#eaecef;margin:0;padding:24px}
+.box{display:flex;flex-direction:column;gap:12px;align-items:center;justify-content:center;height:80vh}
+button{padding:14px 18px;border-radius:12px;border:2px solid #2a2f45;background:#1f2333;color:#fff;font-weight:700;touch-action:manipulation}</style>
+<div class="box">
+  <div>pointerdown: <span id="pd">0</span> — touchstart: <span id="ts">0</span> — click: <span id="ck">0</span></div>
+  <button id="btn" type="button">Tocar aquí</button>
+</div>
+<script>
+const inc=id=>{const el=document.getElementById(id); el.textContent=+el.textContent+1}
+const btn=document.getElementById('btn')
+btn.addEventListener('pointerdown',e=>{e.preventDefault();inc('pd')},{passive:false})
+btn.addEventListener('touchstart', e=>{e.preventDefault();inc('ts')},{passive:false})
+btn.addEventListener('click',      e=>{e.preventDefault();inc('ck')})
+</script>
